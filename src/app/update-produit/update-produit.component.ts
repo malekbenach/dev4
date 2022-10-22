@@ -6,15 +6,14 @@ import { ActivatedRoute,Router } from '@angular/router';
 @Component({
   selector: 'app-update-produit',
   templateUrl: './update-produit.component.html',
-  styles: [
-  ]
+  styles: []
 })
 export class UpdateProduitComponent implements OnInit {
   currentProduit = new Produit();
 
  constructor(private activatedRoute: ActivatedRoute,
-private router :Router,
-private produitService: ProduitService) { }
+             private router :Router,
+             private produitService: ProduitService) { }
 
 updateProduit()
 { //console.log(this.currentProduit);

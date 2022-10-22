@@ -5,6 +5,7 @@ providedIn: 'root'
 })
 export class ProduitService {
 produits : Produit[]; //un tableau de Produit
+produit! : Produit;
 constructor() {
 this.produits = [
 { idProduit : 1, nomProduit : "PC Asus", prixProduit : 3000.600, dateCreation
@@ -19,4 +20,26 @@ listeProduits():Produit[] {
 ajouterProduit( prod: Produit){
 this.produits.push(prod);
 }
+
+consulterProduit(id:number): Produit{
+  this.produit = this.produits.find(p => p.idProduit == id)!;
+  return this.produit;
+  }
+
+supprimerProduit( prod: Produit){
+  //supprimer le produit prod du tableau produits
+  const index = this.produits.indexOf(prod, 0);
+  if (index > -1) {
+  this.produits.splice(index, 1);
+  }
+  }
+
+  
+ 
+updateProduit(p:Produit)
+  {
+  // console.log(p);
+ this.supprimerProduit(p);
+ this.ajouterProduit(p);
+  }
 }
